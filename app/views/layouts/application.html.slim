@@ -1,0 +1,19 @@
+doctype html
+
+html
+  head
+    title = page_title
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+
+    h1 = page_sub_title
+    - unless flash.empty?
+      - flash.each do |key, value|
+        .flash class="flash-#{key}"
+          = value
+
+    br
+    = yield
