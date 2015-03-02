@@ -22,7 +22,6 @@ end
 require 'mocha/setup'
 require 'database_cleaner'
 require 'capybara/rails'
-# require 'capybara-webkit'
 
 class CapybaraTest < ActionDispatch::IntegrationTest
   include Capybara::DSL

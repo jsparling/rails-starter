@@ -46,6 +46,10 @@ group :development, :test do
   # Find security vulnerabilities
   gem 'brakeman', :require => false
 
+  # Code analysis
+  # run this command to get the report: rubycritic app lib
+  gem "rubycritic", :require => false
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
