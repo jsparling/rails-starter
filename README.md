@@ -5,5 +5,6 @@
 ```
 git remove remote origin
 ```
+1. update the database.yml to have the names of your database
 1. create a new repo in github
 1. Follow instructions on re-initting git and adding the new origin.
