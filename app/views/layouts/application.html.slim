@@ -9,6 +9,7 @@ html
 
   body
 
+    = render 'layouts/nav'
     h1 = page_sub_title
     - unless flash.empty?
       - flash.each do |key, value|

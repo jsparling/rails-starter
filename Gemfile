@@ -5,12 +5,15 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 
 # Slim for layouts, includes scaffolding
-gem "slim-rails"
+gem 'slim-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
-# Use SCSS for stylesheets
+
+# Bootstrap
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -48,7 +51,7 @@ group :development, :test do
 
   # Code analysis
   # run this command to get the report: rubycritic app lib
-  gem "rubycritic", :require => false
+  gem 'rubycritic', :require => false
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
