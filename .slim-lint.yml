@@ -1,0 +1,32 @@
+linters:
+  ConsecutiveControlStatements:
+    enabled: true
+    max_consecutive: 3
+
+  LineLength:
+    enabled: false
+    # max: 80
+
+  RuboCop:
+    enabled: true
+
+    # These cops are incredibly noisy since the Ruby we extract from Slim
+    # templates isn't well-formatted, so we ignore them.
+    ignored_cops:
+      - Lint/BlockAlignment
+      - Lint/EndAlignment
+      - Lint/Void
+      - Metrics/LineLength
+      - Style/AlignHash
+      - Style/AlignParameters
+      - Style/BlockNesting
+      - Style/ExtraSpacing
+      - Style/FileName
+      - Style/FirstParameterIndentation
+      - Style/IfUnlessModifier
+      - Style/IndentationConsistency
+      - Style/IndentationWidth
+      - Style/Next
+      - Style/TrailingBlankLines
+      - Style/TrailingWhitespace
+      - Style/WhileUntilModifier

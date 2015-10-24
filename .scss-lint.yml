@@ -1,0 +1,62 @@
+exclude:
+  - 'app/assets/stylesheets/vendor/**'
+  - 'gem/app/assets/stylesheets/avvo_ui/vendor/**'
+
+linters:
+  ColorKeyword:
+    enabled: false # Allow the use of color keywords, e.g. `color: white`
+
+  ColorVariable:
+    enabled: false # Allow the use of color literals in other contexts, like ui-color(navy)
+
+  Comment:
+    enabled: true # Don't worry about multi-line comments as they get stripped out in precompilation.
+    exclude:
+      - 'gem/app/assets/stylesheets/avvo_ui/functions/**'
+      - 'gem/app/assets/stylesheets/avvo_ui/fonts/**'
+
+  # ElsePlacement:
+  #   # style: new_line
+
+  HexLength:
+    enabled: false # Use short or long-hand as appropriate
+
+  HexNotation:
+    style: uppercase
+
+  ImportantRule:
+    exclude: 'gem/app/assets/stylesheets/avvo_ui/utilities/**'
+
+  LeadingZero:
+    enabled: false
+
+  MergeableSelector:
+    enabled: false # This linter can lead to dangerous false positives
+
+  PropertySortOrder:
+    enabled: false
+
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: true
+    allow_element_with_class: false
+    allow_element_with_id: false
+
+  SelectorFormat:
+    convention: hyphenated_lowercase
+
+  SpaceAfterComma:
+    enabled: false
+
+  SpaceAfterPropertyColon:
+    style: at_least_one_space
+
+  SpaceAroundOperator:
+    # Disabling to allow for horizontal alignment of operators
+    enabled: false
+
+  SpaceBetweenParens:
+    enabled: false
+
+  SpaceBeforeBrace:
+    allow_single_line_padding: true
