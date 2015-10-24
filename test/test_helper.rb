@@ -1,4 +1,11 @@
 require 'simplecov'
+require 'metric_fu/metrics/rcov/simplecov_formatter'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::MetricFu
+]
+
 SimpleCov.start 'rails'
 
 ENV['RAILS_ENV'] ||= 'test'

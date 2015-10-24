@@ -61,6 +61,7 @@ group :development, :test do
 
   gem 'overcommit',       require: false    # Manages git hooks
 
+  gem 'metric_fu'                           # Creates metrics for project. run: metric_fu
   # Allow for automatic tasks to run on file change
   gem 'guard'
 
