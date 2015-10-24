@@ -5,3 +5,5 @@ MetricFu::Configuration.run do |config|
     rcov.activate
   end
 end
+
+MetricFu.configuration.configure_graph_engine(:highcharts)
