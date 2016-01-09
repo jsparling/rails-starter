@@ -3,7 +3,7 @@
 1. move the directory to the name you want to use
 1. remove the git origins
 ```
-git remove remote origin
+git remote remove origin
 ```
 1. update the database.yml to have the names of your database
 1. create a new repo in github

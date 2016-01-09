@@ -1,0 +1,9 @@
+Script started on Sat Jan  9 11:28:36 2016
+[?1034hbash-3.2$ ls
+Gemfile      README.md    [1m[34mbin[39;49m[0m          [1m[34mdb[39;49m[0m           [1m[34mpublic[39;49m[0m       [1m[34mtmp[39;49m[0m
+Gemfile.lock Rakefile     [1m[34mconfig[39;49m[0m       [1m[34mlib[39;49m[0m          [1m[34mscript[39;49m[0m       typescript
+Guardfile    [1m[34mapp[39;49m[0m          config.ru    [1m[34mlog[39;49m[0m          [1m[34mtest[39;49m[0m         [1m[34mvendor[39;49m[0m
+bash-3.2$ exit
+exit
+
+Script done on Sat Jan  9 11:28:42 2016
