@@ -1,20 +1,23 @@
 doctype html
 
-html
+html [lang="en"]
   head
     title = page_title
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+
+    meta [charset="utf-8"]
+    meta [name="viewport" content="width=device-width, initial-scale=1"]
+    meta [http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1']
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    = render 'layouts/favicons'
 
   body
+    = render 'shared/nav'
 
-    = render 'layouts/nav'
-    h1 = page_sub_title
-    - unless flash.empty?
-      - flash.each do |key, value|
-        .flash class="flash-#{key}"
-          = value
+    .container
+      #flash-messages
+        = render 'shared/flash_messages', flash: flash
 
-    br
-    = yield
+      = yield

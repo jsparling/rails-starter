@@ -235,16 +235,23 @@ EmptyLines:
   Description: "Don't use several empty lines in a row."
   Enabled: true
 
+EmptyLinesAroundModuleBody:
+  Enabled: false
+
 EmptyLinesAroundAccessModifier:
   Description: "Keep blank lines around access modifiers."
   Enabled: true
 
 EmptyLinesAroundBody:
   Description: "Keeps track of empty lines around expression bodies."
-  Enabled: true
+  Enabled: false
 
 EmptyLinesAroundBlockBody:
   Description: "Keeps track of empty lines around block bodies."
+  Enabled: false
+
+EmptyLinesAroundClassBody:
+  Description: "Keeps track of empty lines around class bodies."
   Enabled: false
 
 EmptyLiteral:
