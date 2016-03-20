@@ -1,70 +1,44 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails'
 
-# Slim for layouts, includes scaffolding
-gem 'slim-rails'
+gem 'slim-rails' # Slim for layouts, includes scaffolding
 
-# Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg'         # Use postgresql as the database for Active Record
 
 # Bootstrap
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'uglifier', '>= 1.3.0'     # Use Uglifier as compressor for JavaScript assets
+gem 'coffee-rails', '~> 4.1.0' # Use CoffeeScript for .coffee assets and views
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+# gem 'therubyracer', platforms: :ruby # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
-# Add vendor prefixes to CSS rules
-gem 'autoprefixer-rails'
+gem 'jquery-rails'       # Use jquery as the JavaScript library
+gem 'turbolinks'         # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'sdoc', '~> 0.4.0', group: :doc   # bundle exec rake doc:rails generates the API under doc/api.
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'autoprefixer-rails' # Add vendor prefixes to CSS rules
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'brakeman', :require => false # Find security vulnerabilities
 
-  # Find security vulnerabilities
-  gem 'brakeman', :require => false
+  gem 'rubycritic', :require => false # run this command to get the report: rubycritic app lib
 
-  # Code analysis
-  # run this command to get the report: rubycritic app lib
-  gem 'rubycritic', :require => false
+  gem 'web-console', '~> 2.0' # Access an IRB console on exception pages or by using <%= console %> in views
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'scss-lint'   # Linter for scss
+  gem 'slim_lint'   # Slim linter
 
-  gem 'overcommit',       require: false    # Manages git hooks
-
-  gem 'metric_fu'                           # Creates metrics for project. run: metric_fu
-  # Allow for automatic tasks to run on file change
-  gem 'guard'
-
+  gem 'overcommit', require: false    # Manages git hooks
+  gem 'metric_fu'   # Creates metrics for project. run: metric_fu
+  gem 'guard'       # Allow for automatic tasks to run on file change
   gem 'guard-livereload', :require => false # refresh the browser when a view file changes
   gem 'guard-minitest',   :require => false # Runs tests when files are saved
   gem 'rack-livereload'                     # Set up hooks for guard-livereload
@@ -74,23 +48,17 @@ end
 group :test do
   gem 'minitest'
 
-  # better display for minitest
-  gem 'minitest-reporters'
+  gem 'minitest-reporters' # better display for minitest
 
   # Capybara for integration testing
   gem 'capybara'
   gem 'capybara-webkit'
 
-  # Fix after commits (not needed in Rails 5)
-  gem 'test_after_commit'
+  gem 'test_after_commit' # Fix after commits (not needed in Rails 5)
 
-  # Simplecov for test coverage
-  gem 'simplecov', :require => false
+  gem 'database_cleaner' # specify strategy used to clean database after tests
+  gem 'mocha', :require => false # Mocha for mocks
 
-  # specify strategy used to clean database after tests
-  gem 'database_cleaner'
-
-  # Mocha for mocks
-  gem 'mocha', :require => false
+  gem 'simplecov', :require => false # Simplecov for test coverage
 end
 

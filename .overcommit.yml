@@ -55,6 +55,8 @@ PreCommit:
   ScssLint:
     enabled: true
     on_warn: fail
+    exclude:
+      - '**/assets/stylesheets/scaffolds.scss'
 
   SlimLint:
     enabled: true
