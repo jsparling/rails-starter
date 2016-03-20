@@ -38,7 +38,7 @@ group :development do
 
   gem 'overcommit', require: false # Manages git hooks
   gem 'metric_fu', require: false  # Creates metrics for project. run: metric_fu
-  gem 'guard'       # Allow for automatic tasks to run on file change
+  gem 'guard' # Allow for automatic tasks to run on file change
   gem 'guard-livereload', :require => false # refresh the browser when a view file changes
   gem 'guard-minitest',   :require => false # Runs tests when files are saved
   gem 'rb-fsevent',       :require => false # Speeds up guard
