@@ -1,10 +1,10 @@
 require 'simplecov'
 require 'metric_fu/metrics/rcov/simplecov_formatter'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::MetricFu
-]
+])
 
 SimpleCov.start 'rails'
 
