@@ -1,4 +1,4 @@
-# Rubocop Config
+# Rubocop Config v1.1
 
 # Commented blocks are Rubocop's default settings.
 # See https://github.com/bbatsov/rubocop/blob/master/config/default.yml
@@ -11,8 +11,9 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
-  RunRailsCops: true
 
+Rails:
+  Enabled: true
 
 #################################### Style ###################################
 # Most of the cops in RuboCop are so called style cops that check for
@@ -118,12 +119,8 @@ BlockNesting:
   Max: 3
   Enabled: true
 
-Blocks:
-  Description: >-
-                Avoid using {...} for multi-line blocks (multiline chaining is
-                always ugly).
-                Prefer {...} over do...end for single-line blocks.
-  Enabled: true
+BlockDelimiters:
+  EnforcedStyle: line_count_based
 
 BracesAroundHashParameters:
   Description: 'Enforce braces style inside hash parameters.'
@@ -214,7 +211,7 @@ DotPosition:
   Description: 'Checks the position of the dot in multi-line method calls.'
   Enabled: true
 
-  Style: leading
+  EnforcedStyle: leading
   SupportedStyles:
     - leading
     - trailing
@@ -241,10 +238,6 @@ EmptyLinesAroundModuleBody:
 EmptyLinesAroundAccessModifier:
   Description: "Keep blank lines around access modifiers."
   Enabled: true
-
-EmptyLinesAroundBody:
-  Description: "Keeps track of empty lines around expression bodies."
-  Enabled: false
 
 EmptyLinesAroundBlockBody:
   Description: "Keeps track of empty lines around block bodies."
@@ -286,26 +279,22 @@ EvenOdd:
   Description: 'Favor the use of Fixnum#even? && Fixnum#odd?'
   Enabled: true
 
-FavorJoin:
+ArrayJoin:
   Description: 'Use Array#join instead of Array#*.'
   Enabled: true
 
-FavorUnlessOverNegatedIf:
+NegatedIf:
   Description: >-
                  Favor unless over if for negative conditions
                  (or control flow or).
   Enabled: true
 
-FavorUntilOverNegatedWhile:
+NegatedWhile:
   Description: 'Favor until over while for negative conditions.'
   Enabled: true
 
 FileName:
   Description: 'Use snake_case for source file names.'
-  Enabled: true
-
-FinalNewline:
-  Description: 'Checks for a final newline in a source file.'
   Enabled: true
 
 FlipFlop:
@@ -337,7 +326,7 @@ GlobalVars:
 
   AllowedVariables: []
 
-HashMethods:
+DeprecatedHashMethods:
   Description: 'Checks for use of deprecated Hash methods.'
   Enabled: true
 
@@ -546,14 +535,17 @@ RedundantSelf:
   Enabled: true
 
 RegexpLiteral:
-  Description: >-
-                 Use %r for regular expressions matching more than
-                 `MaxSlashes` '/' characters.
-                 Use %r only for regular expressions matching more than
-                 `MaxSlashes` '/' character.
-  Enabled: true
-
-  MaxSlashes: 1
+  EnforcedStyle: mixed 
+  # slashes: Always use slashes.
+  # percent_r: Always use %r.
+  # mixed: Use slashes on single-line regexes, and %r on multi-line regexes.
+  SupportedStyles:
+    - slashes
+    - percent_r
+    - mixed
+  # If false, the cop will always recommend using %r if one or more slashes
+  # are found in the regexp string.
+  AllowInnerSlashes: false
 
 RescueModifier:
   Description: 'Avoid using rescue in its modifier form.'
@@ -602,7 +594,7 @@ SpaceAfterComma:
   Description: 'Use spaces after commas.'
   Enabled: true
 
-SpaceAfterControlKeyword:
+SpaceAroundKeyword:
   Description: 'Use spaces after if/elsif/unless/while/until/case/when.'
   Enabled: true
 
@@ -620,21 +612,11 @@ SpaceAfterSemicolon:
   Description: 'Use spaces after semicolons.'
   Enabled: true
 
-SpaceAroundBlockBraces:
-  Description: >-
-                 Checks that block braces have or don't have surrounding space.
-                 For blocks taking parameters, checks that the left brace has
-                 or doesn't have trailing space.
+SpaceBeforeBlockBraces:
   Enabled: true
 
-  EnforcedStyle: space_inside_braces
-  SupportedStyles:
-    - space_inside_braces
-    - no_space_inside_braces
-  # Valid values are: space, no_space
-  EnforcedStyleForEmptyBraces: no_space
-  # Space between { and |. Overrides EnforcedStyle if there is a conflict.
-  SpaceBeforeBlockParameters: true
+SpaceInsideBlockBraces:
+  Enabled: true
 
 SpaceAroundEqualsInParameterDefault:
   Description: Use spaces around the = operator when assigning default values in def params.
@@ -647,10 +629,6 @@ SpaceAroundEqualsInParameterDefault:
 
 SpaceAroundOperators:
   Description: 'Use spaces around operators.'
-  Enabled: true
-
-SpaceBeforeModifierKeyword:
-  Description: 'Put a space before the modifier keyword.'
   Enabled: true
 
 SpaceInsideBrackets:
@@ -694,9 +672,9 @@ Tab:
 
 TrailingBlankLines:
   Description: 'Checks for superfluous trailing blank lines.'
-  Enabled: false
+  Enabled: true 
 
-TrailingComma:
+TrailingCommaInLiteral:
   Description: 'Checks for trailing comma in parameter lists and literals.'
   Enabled: true
 
@@ -930,36 +908,29 @@ Void:
 ################################### Rails ####################################
 # Rails cops are specific to the Ruby on Rails framework.
 
-DefaultScope:
-  Description: 'Checks if the argument passed to default_scope is a block.'
-  Enabled: true
-
-  IncludePaths:
-    - app/models
-
 HasAndBelongsToMany:
   Description: 'Prefer has_many :through to has_and_belongs_to_many.'
   Enabled: false
 
-  IncludePaths:
+  Include:
     - app/models
 
 Output:
   Description: 'Checks for calls to puts, print, etc.'
   Enabled: true
 
-ReadAttribute:
+ReadWriteAttribute:
   Description: 'Prefer self[:attribute] over read_attribute(:attribute).'
   Enabled: true
 
-  IncludePaths:
+  Include:
     - app/models
 
 Validation:
   Description: 'Use sexy validations.'
   Enabled: true
 
-  IncludePaths:
+  Include:
     - app/models
 
 Metrics/AbcSize:
