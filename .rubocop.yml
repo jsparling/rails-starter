@@ -153,6 +153,27 @@ ClassAndModuleCamelCase:
   Description: 'Use CamelCase for classes and modules.'
   Enabled: true
 
+Style/ClassAndModuleChildren:
+  # Checks the style of children definitions at classes and modules.
+  #
+  # Basically there are two different styles:
+  #
+  # `nested` - have each child on a separate line
+  #   class Foo
+  #     class Bar
+  #     end
+  #   end
+  #
+  # `compact` - combine definitions as much as possible
+  #   class Foo::Bar
+  #   end
+  #
+  # The compact style is only forced, for classes / modules with one child.
+  EnforcedStyle: compact
+  SupportedStyles:
+    - nested
+    - compact
+
 ClassLength:
   Description: 'Avoid classes longer than 100 lines of code.'
   Enabled: false
@@ -535,7 +556,7 @@ RedundantSelf:
   Enabled: true
 
 RegexpLiteral:
-  EnforcedStyle: mixed 
+  EnforcedStyle: mixed
   # slashes: Always use slashes.
   # percent_r: Always use %r.
   # mixed: Use slashes on single-line regexes, and %r on multi-line regexes.
@@ -672,7 +693,7 @@ Tab:
 
 TrailingBlankLines:
   Description: 'Checks for superfluous trailing blank lines.'
-  Enabled: true 
+  Enabled: true
 
 TrailingCommaInLiteral:
   Description: 'Checks for trailing comma in parameter lists and literals.'
