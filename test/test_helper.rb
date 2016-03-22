@@ -41,7 +41,7 @@ class CapybaraTest < ActionDispatch::IntegrationTest
     DatabaseCleaner.start
     Capybara.current_driver = :webkit
     Capybara.javascript_driver = :webkit
-    Capybara.default_wait_time = 6
+    Capybara.default_max_wait_time = 6
   end
 
   def teardown

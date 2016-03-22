@@ -45,7 +45,7 @@ GEM
     arel (6.0.3)
     arrayfields (4.9.2)
     ast (2.2.0)
-    autoprefixer-rails (6.3.3.1)
+    autoprefixer-rails (6.3.4)
       execjs
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
